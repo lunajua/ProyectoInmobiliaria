@@ -8,5 +8,8 @@ def index(request):
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
 
+def pagina_no_encontrada(request):
+    return render(request, 'appinmobiliaria/404.html')
 
-
+def contact(request):
+    return render(request, 'appinmobiliaria/contact.html')
