@@ -13,3 +13,7 @@ def pagina_no_encontrada(request):
 
 def contact(request):
     return render(request, 'appinmobiliaria/contact.html')
+
+def testimonial(request):
+    return render(request, 'appinmobiliaria/testimonial.html')
+
