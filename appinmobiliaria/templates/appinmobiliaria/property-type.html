@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Makaan - Real Estate HTML Template</title>
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{% static '/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static '/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                        <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-deal.png' %}" alt="Icon" style="width: 30px; height: 30px;">
                     </div>
                     <h1 class="m-0 text-primary">Makaan</h1>
                 </a>
@@ -96,7 +96,7 @@
                     </nav>
                 </div>
                 <div class="col-md-6 animated fadeIn">
-                    <img class="img-fluid" src="img/header.jpg" alt="">
+                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/header.jpg' %}" alt="">
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-apartment.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-apartment.png' %}" alt="Icon">
                                 </div>
                                 <h6>Apartment</h6>
                                 <span>123 Properties</span>
@@ -162,7 +162,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-villa.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-villa.png' %}" alt="Icon">
                                 </div>
                                 <h6>Villa</h6>
                                 <span>123 Properties</span>
@@ -173,7 +173,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-house.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-house.png' %}" alt="Icon">
                                 </div>
                                 <h6>Home</h6>
                                 <span>123 Properties</span>
@@ -184,7 +184,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-housing.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-housing.png' %}" alt="Icon">
                                 </div>
                                 <h6>Office</h6>
                                 <span>123 Properties</span>
@@ -195,7 +195,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-building.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-building.png' %}" alt="Icon">
                                 </div>
                                 <h6>Building</h6>
                                 <span>123 Properties</span>
@@ -206,7 +206,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-neighborhood.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-neighborhood.png' %}" alt="Icon">
                                 </div>
                                 <h6>Townhouse</h6>
                                 <span>123 Properties</span>
@@ -217,7 +217,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-condominium.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-condominium.png' %}" alt="Icon">
                                 </div>
                                 <h6>Shop</h6>
                                 <span>123 Properties</span>
@@ -228,7 +228,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="img/icon-luxury.png" alt="Icon">
+                                    <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-luxury.png' %}" alt="Icon">
                                 </div>
                                 <h6>Garage</h6>
                                 <span>123 Properties</span>
@@ -269,22 +269,22 @@
                         <h5 class="text-white mb-4">Photo Gallery</h5>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-1.jpg' %}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-2.jpg' %}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-3.jpg' %}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-4.jpg' %}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-5.jpg' %}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{% static 'appinmobiliaria/img/property-6.jpg' %}" alt="">
                             </div>
                         </div>
                     </div>
@@ -327,15 +327,15 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'appinmobiliaria/lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'appinmobiliaria/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'appinmobiliaria/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'appinmobiliaria/lib/owlcarousel/owl.carousel.min.js' %}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{% static 'appinmobiliaria/js/main.js' %}"></script>
 </body>
 
 </html>
