@@ -17,3 +17,12 @@ def contact(request):
 def testimonial(request):
     return render(request, 'appinmobiliaria/testimonial.html')
 
+def property_agent(request):
+    return render(request, 'appinmobiliaria/property-agent.html')
+
+def property_list(request):
+    return render(request, 'appinmobiliaria/property-list.html')
+
+def property_type(request):
+    return render(request, 'appinmobiliaria/property-type.html')
+
