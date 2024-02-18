@@ -47,7 +47,7 @@
         <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="{% url 'Index' %}" class="navbar-brand d-flex align-items-center text-center">
+                <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-2 me-2">
                         <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-deal.png' %}" alt="Icon" style="width: 30px; height: 30px;">
                     </div>
@@ -58,37 +58,37 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="{% url 'Index' %}" class="nav-item nav-link active">Inicio</a>
-                        <a href="{% url 'Views' %}" class="nav-item nav-link">Acerca De</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">Inicio</a>
+                        <a href="{% url 'views' %}" class="nav-item nav-link">Acerca De</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Propiedad</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'Lista' %}" class="dropdown-item">Lista de Propiedades</a>
-                                <a href="{% url 'Tipo' %}" class="dropdown-item">Tipo De Propiedad</a>
-                                <a href="{% url 'Agente' %}" class="dropdown-item">Agentes</a>
+                                <a href="{% url 'lista' %}" class="dropdown-item">Lista de Propiedades</a>
+                                <a href="{% url 'tipo' %}" class="dropdown-item">Tipo De Propiedad</a>
+                                <a href="{% url 'agente' %}" class="dropdown-item">Agentes</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'Testimonial' %}" class="dropdown-item">Testimonios</a>
-                                <a href="{% url 'no_encontrado' %}" class="dropdown-item">404 Error</a>
+                                <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonios</a>
+                                <a href="{% url 'no-encontrado' %}" class="dropdown-item">404 Error</a>
                             </div>
                         </div>
-                        <a href="{% url 'Contact' %}" class="nav-item nav-link">Contacto</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Agregar Propiedad</a>
                 </div>
             </nav>
         </div>
         <!-- Navbar End -->
-        {% block contenidoQueCambia %}
+        {% block content %}
         
 
 
 
-        {% endblock contenidoQueCambia %}
-
+        {% endblock %}
+        
 
 
 
@@ -160,7 +160,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="{% url 'Index' %}">Inicio</a>
+                                <a href="{% url 'index' %}">Inicio</a>
                                 <a href="">Cookies</a>
                                 <a href="">Ayuda</a>
                                 <a href="">FQAs</a>
