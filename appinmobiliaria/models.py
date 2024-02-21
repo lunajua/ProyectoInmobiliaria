@@ -41,6 +41,9 @@ class Contacto(models.Model):
     telefono = models.CharField(max_length=40)
     email = models.EmailField(max_length=40)
     agendar_visita = models.BooleanField()
+    
+    def __str__(self):
+        return self.nombre + " " + self.apellido
 
 class Servicios(models.Model):
     nombre = models.CharField(max_length=40)
