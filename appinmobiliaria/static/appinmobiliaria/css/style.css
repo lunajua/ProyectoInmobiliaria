@@ -1,4 +1,8 @@
 /********** Template CSS **********/
+.dropdown-menu {
+    background-color: #00B98E;
+}
+
 :root {
     --primary: #00B98E;
     --secondary: #FF6922;
