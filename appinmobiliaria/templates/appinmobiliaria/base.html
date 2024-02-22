@@ -53,16 +53,6 @@
                     </div>
                     <h1 class="m-0 text-primary">Inmobiliaria</h1>
                 </a>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'users:register' %}">Action</a></li>
-                      <li><a class="dropdown-item" href="{% url 'users:login' %}">Another action</a></li>
-                      <li><a class="dropdown-item" href="{% url 'users:logout' %}">Something else here</a></li>
-                    </ul>
-                  </div>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -89,6 +79,26 @@
                     </div>
                     <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Agregar Propiedad</a>
                 </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {% if request.user.is_authenticated %}
+                    <div class="nav-item dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{ request.user.username }}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'users:logout' %}" id="logoutLink">Cerrar Sesion</a>
+                        </div>
+ 
+                        {% else %}
+                      <div class="nav-item dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Login/Singup
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{% url 'users:login' %}" id="loginLink">Iniciar sesión</a>
+                          <a class="dropdown-item" href="{% url 'users:register' %}" id="registerLink">Crear cuenta</a>
+                         {% endif %}
+                        </div>
             </nav>
         </div>
         <!-- Navbar End -->

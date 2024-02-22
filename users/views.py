@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 class CreacionDeCuenta(generic.CreateView):
     form_class = UserForm
-    success_url = reverse_lazy('users:index')
+    success_url = reverse_lazy('appinmobiliaria:index')
     template_name='users/register.html'
 
 
