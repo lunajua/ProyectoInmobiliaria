@@ -10,8 +10,8 @@ from django.urls import reverse_lazy
 
 class CreacionDeCuenta(generic.CreateView):
     form_class = UserForm
-    success_url = 'pre_entrega/index.html'
-    template_name='pre_entrega/index.html'
+    success_url = 'appinmobiliaria/index.html'
+    template_name='appinmobiliaria/index.html'
 
 
 class Login(LoginView):
@@ -22,4 +22,4 @@ class Login(LoginView):
     
 
 class logout(LogoutView):
-    next_page = 'pre_entrega:index'
+    next_page = 'appinmobiliaria:index'
