@@ -6,11 +6,6 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-from django.views import generic
-from users.forms import UserForm
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse_lazy
-
 
 
 class CreacionDeCuenta(generic.CreateView):

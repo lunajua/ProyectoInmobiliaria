@@ -2,6 +2,8 @@ from django.urls import path
 from appinmobiliaria import views
 from appinmobiliaria.views import ContactoView
 
+app_name = 'appinmobiliaria'
+
 urlpatterns = [
     path('', views.index, name="index"),
     path('about/', views.about, name="views"),
