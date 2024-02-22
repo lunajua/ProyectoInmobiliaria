@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "appinmobiliaria",
     "crispy_forms",
+    "users",
 ]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
