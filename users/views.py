@@ -18,7 +18,7 @@ class Login(LoginView):
     template_name = 'users/login.html'
 
     def get_success_url(self):
-        return reverse_lazy('pre_entrega:index')
+        return reverse_lazy('appinmobiliaria:index')
     
 
 class logout(LogoutView):

@@ -47,7 +47,7 @@
         <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center text-center">
+                <a href="{% url 'appinmobiliaria:index' %}" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-2 me-2">
                         <img class="img-fluid" src="{% static 'appinmobiliaria/img/icon-deal.png' %}" alt="Icon" style="width: 30px; height: 30px;">
                     </div>
@@ -58,9 +58,9 @@
                       Dropdown button
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:register' %}">Action</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:login' %}">Another action</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:logout' %}">Something else here</a></li>
                     </ul>
                   </div>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -68,24 +68,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="{% url 'index' %}" class="nav-item nav-link active">Inicio</a>
-                        <a href="{% url 'views' %}" class="nav-item nav-link">Acerca De</a>
+                        <a href="{% url 'appinmobiliaria:index' %}" class="nav-item nav-link active">Inicio</a>
+                        <a href="{% url 'appinmobiliaria:views' %}" class="nav-item nav-link">Acerca De</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Propiedad</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'lista' %}" class="dropdown-item">Lista de Propiedades</a>
-                                <a href="{% url 'tipo' %}" class="dropdown-item">Tipo De Propiedad</a>
-                                <a href="{% url 'agente' %}" class="dropdown-item">Agentes</a>
+                                <a href="{% url 'appinmobiliaria:lista' %}" class="dropdown-item">Lista de Propiedades</a>
+                                <a href="{% url 'appinmobiliaria:tipo' %}" class="dropdown-item">Tipo De Propiedad</a>
+                                <a href="{% url 'appinmobiliaria:agente' %}" class="dropdown-item">Agentes</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonios</a>
-                                <a href="{% url 'no-encontrado' %}" class="dropdown-item">404 Error</a>
+                                <a href="{% url 'appinmobiliaria:testimonial' %}" class="dropdown-item">Testimonios</a>
+                                <a href="{% url 'appinmobiliaria:no-encontrado' %}" class="dropdown-item">404 Error</a>
                             </div>
                         </div>
-                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contacto</a>
+                        <a href="{% url 'appinmobiliaria:contact' %}" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Agregar Propiedad</a>
                 </div>
