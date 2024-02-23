@@ -14,9 +14,10 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
-
+    <br>
+    <a href="{% url 'users:register' %}" class="btn btn-primary">Registrarse</a>
 
 
     {% endblock %}
