@@ -16,8 +16,10 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrarse</button>
+    <table>
+    {{ form.as_table}}    
+    </table>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
 </form>
 
 {% endblock %}
