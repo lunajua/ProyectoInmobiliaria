@@ -1,6 +1,6 @@
 {% extends 'appinmobiliaria/base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,9 @@
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <table>
+        {{ form|crispy }}
+        </table>    
         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
     <br>

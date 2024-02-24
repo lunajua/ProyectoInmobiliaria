@@ -1,6 +1,6 @@
 {% extends 'appinmobiliaria/base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +18,11 @@
          
         <table>
 
-            {{ miFormulario.as_table }}
+            {{ miFormulario|crispy }}
 
         </table>
-
-        <input type="submit", value="Enviar">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        
 
     </form>
 

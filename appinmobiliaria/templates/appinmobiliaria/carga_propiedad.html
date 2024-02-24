@@ -1,7 +1,7 @@
 {% extends 'appinmobiliaria/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-
+{% load crispy_forms_tags %}
 <head>
     {% load static %}
     <meta charset="utf-8">
@@ -53,10 +53,10 @@
                     <h2> Agregar Propiedad </h2> 
             <hr> 
             <form action="" method="POST">
-        
+                
                 {% csrf_token %}
                 <table>
-                {{ form.as_table }}
+                {{ form|crispy }}
                 </table>
                 
                 <br>
