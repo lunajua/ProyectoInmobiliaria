@@ -21,14 +21,14 @@ ven_alq = [
 ]
 class Propiedad(models.Model):
     direccion = models.CharField(max_length=40)
-    tipo_de_propiedad = models.CharField(max_length=40, choices=opciones_propiedad)
-    localizacion = models.CharField(max_length=40)
+    tipo_de_propiedad = models.IntegerField(choices=opciones_propiedad)
+    localidad = models.CharField(max_length=40)
     palabra_clave = models.CharField(max_length=40)
     metros = models.IntegerField(validators=[MinValueValidator(0)])
     ambientes = models.IntegerField(validators=[MinValueValidator(0)])
-    banos = models.IntegerField(validators=[MinValueValidator(0)])
-    descripcion = models.CharField(max_length=40)
-    venta_o_alquiler =models.CharField(max_length=40, choices=ven_alq)
+    baños = models.IntegerField(validators=[MinValueValidator(0)])
+    descripcion = models.TextField()
+    venta_o_alquiler =models.IntegerField(choices=ven_alq)
     otros_atributos = models.CharField(max_length=40)
 
 class Cliente(models.Model):
