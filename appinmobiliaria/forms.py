@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contacto, Propiedad
+from .models import Contacto, Propiedad , Image
 
 class ContactoFormulario(forms.ModelForm):
     
@@ -12,3 +12,10 @@ class CargaPropiedad(forms.ModelForm):
         model = Propiedad
         fields = "__all__"
 
+
+class ImageForm(forms.ModelForm):
+    image = forms.ImageField(widget=forms.ClearableFileInput())
+
+    class Meta:
+        model = Image
+        fields = ['image']

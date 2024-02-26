@@ -70,3 +70,7 @@ class Servicios(models.Model):
 class Noticias(models.Model):
     fecha = models.DateField()
     noticia = models.CharField(max_length=40)
+
+class Image(models.Model):
+    propiedad = models.ForeignKey(Propiedad, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='property_images/')

@@ -1,0 +1,18 @@
+    {% extends 'appinmobiliaria/base.html' %}
+    {% load static %}
+    {% block Title %} Propiedad   {% endblock %}
+        {% block content %}
+
+
+            <img src="{{ property.image.url }}" alt="Imagen de la propiedad">
+            <h1>Dirección: {{ property2.direccion }} </h1>
+            <li>Tipo de Propiedad:{{ property2.tipo_de_propiedad }}</li>
+            <li>{{ property2.palabra_clave }}</li>
+            <li> Metros Cuadrados:{{ property2.metros }}</li>
+            <li> Cantidad de Ambientes:{{ property2.ambientes }}</li>
+            <li> Descripcíon:{{ property2.descripcion }}</li>
+            <li>Estado: {{ property2.venta_o_alquiler }}</li>
+            <li> Baños: {{ property2.baños }}</li>
+    
+    
+        {% endblock %}
