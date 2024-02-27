@@ -6,22 +6,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logeo</title>
+    <title>Edición Usuario</title>
 </head>
 <body>
     {% block content %}
 
-    <form method="post">
+    <h1>Edición de Perfil de {{usuario}}</h1>
+  
+    <form action="" method="POST">
         {% csrf_token %}
+         
         <table>
-        {{ form|crispy }}
-        </table>    
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-    </form>
-    <br>
-    <a href="{% url 'users:register' %}" class="btn btn-primary">Registrarse</a>
 
+            {{ miFormulario|crispy }}
+
+        </table>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        
+
+    </form>
 
     {% endblock %}
+
 </body>
 </html>

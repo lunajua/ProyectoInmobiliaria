@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponse
-from django.views.generic.edit import FormView
+from .models import Image , Propiedad
+from django.views.generic.edit import FormView, CreateView
+from django.views.generic import TemplateView
 from django.urls import reverse_lazy
-from .forms import ContactoFormulario
+from .forms import ContactoFormulario, CargaPropiedad, ImageForm
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def index(request):
@@ -37,3 +41,41 @@ class ContactoView(FormView):
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form))
+
+class AgregaPropiedad(LoginRequiredMixin,CreateView):    
+    login_url = 'users/login'
+    template_name = 'appinmobiliaria/carga_propiedad.html'
+    form_class = CargaPropiedad
+    success_url = reverse_lazy('appinmobiliaria:carga')
+    
+    def form_valid(self, form):
+        propiedad = form.save()
+        form_image = ImageForm(self.request.POST, self.request.FILES)
+        if form_image.is_valid():
+            for img in self.request.FILES.getlist('image'):
+                Image.objects.create(propiedad=propiedad, image=img)
+            messages.success(self.request, 'Propiedad y imágenes cargadas correctamente')
+            return redirect(self.success_url)
+        else:
+
+            messages.error(self.request, 'Error al cargar las imágenes')
+            return self.render_to_response(self.get_context_data(form=form, image_form=form_image))
+    
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form=form))
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context['image_form'] = ImageForm(self.request.POST, self.request.FILES)
+        else:
+            context['image_form'] = ImageForm()
+        return context
+    
+
+def ver_propiedad(request, propiedad_id):
+    property_instance = Propiedad.objects.get(pk=propiedad_id)
+
+    images = property_instance.images.all()
+
+    return render(request, 'appinmobiliaria/propiedad.html', {'property': property_instance, 'images': images})
