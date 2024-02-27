@@ -43,27 +43,31 @@
         </div>
         <!-- Spinner End -->
 
-        {% block content %}
-            <div class="row">    
-                <div class="col-12 col-md-6 offset-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2> Agregar Propiedad </h2>  
-                            <hr>  
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                {{ form|crispy }}
-                                <h3>Cargar Imágenes</h3>
-                                {{ image_form|crispy }}
-                                <br>
-                                <div class="d-flex justify-content-end">
-                                    <input type="reset" value="Cancelar" class="btn btn-secondary">
-                                    &nbsp;
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>         
-                        </div>
-                    </div>
+
+      {% block content %}
+        
+      <div class="row">    
+        <div class="col-12 col-md-6.offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2> Agregar Propiedad </h2> 
+            <hr> 
+            <form action="" method="POST" enctype="multipart/form-data">
+                
+                {% csrf_token %}
+                <table>
+                {{ form|crispy }}
+                </table>
+                   <h3>Cargar Imágenes</h3>
+                {{ image_form|crispy }}
+                <br>
+                <div class="d-flex justify-content-end">
+                    <input type="reset" value="Cancelar" class="btn btn-secondary">
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-            </div>
-        {% endblock %}
+            </form>         
+            
+        
+
+      {% endblock %}

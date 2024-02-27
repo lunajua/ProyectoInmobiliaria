@@ -1,18 +1,23 @@
-    {% extends 'appinmobiliaria/base.html' %}
-    {% load static %}
-    {% block Title %} Propiedad   {% endblock %}
-        {% block content %}
+{% extends 'appinmobiliaria/base.html' %}
+{% load static %}
+{% block Title %} Propiedad   {% endblock %}
+{% block content %}
 
+    {% if property.images.count >  1 %}
+        {% for image in property.images.all %}
+            <img height="400" src="{{ image.image.url }}" alt="Imagen de la propiedad">
+        {% endfor %}
+    {% else %}
+        <img height="400" src="{{ property.images.first.image.url }}" alt="Imagen de la propiedad">
+    {% endif %}
 
-            <img src="{{ property.image.url }}" alt="Imagen de la propiedad">
-            <h1>Dirección: {{ property2.direccion }} </h1>
-            <li>Tipo de Propiedad:{{ property2.tipo_de_propiedad }}</li>
-            <li>{{ property2.palabra_clave }}</li>
-            <li> Metros Cuadrados:{{ property2.metros }}</li>
-            <li> Cantidad de Ambientes:{{ property2.ambientes }}</li>
-            <li> Descripcíon:{{ property2.descripcion }}</li>
-            <li>Estado: {{ property2.venta_o_alquiler }}</li>
-            <li> Baños: {{ property2.baños }}</li>
-    
-    
-        {% endblock %}
+    <h1>Dirección: {{ property.direccion }} </h1>
+    <li>Tipo de Propiedad:{{ property.tipo_de_propiedad }}</li>
+    <li>{{ property.palabra_clave }}</li>
+    <li>Metros Cuadrados:{{ property.metros }}</li>
+    <li>Cantidad de Ambientes:{{ property.ambientes }}</li>
+    <li>Descripción:{{ property.descripcion }}</li>
+    <li>Estado: {{ property.venta_o_alquiler }}</li>
+    <li>Baños: {{ property.baños }}</li>
+
+{% endblock %}

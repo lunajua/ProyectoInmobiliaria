@@ -31,27 +31,6 @@ class Propiedad(models.Model):
     venta_o_alquiler =models.IntegerField(choices=ven_alq)
     otros_atributos = models.CharField(max_length=40)
 
-class Cliente(models.Model):
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    telefono = models.CharField(max_length=40)
-    email = models.EmailField(max_length=40)
-    preferencias = models.CharField(max_length=40)
-
-class Agentes(models.Model):
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    telefono = models.CharField(max_length=40)
-    email = models.EmailField(max_length=40)
-    especialidad = models.CharField(max_length=40)
-
-class Testimonios(models.Model):
-    
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    telefono = models.CharField(max_length=40)
-    email = models.EmailField(max_length=40)
-    testimonios = models.CharField(max_length=40)
 
 class Contacto(models.Model):
     nombre = models.CharField(max_length=40)
@@ -63,13 +42,6 @@ class Contacto(models.Model):
     def __str__(self):
         return self.nombre + " " + self.apellido
 
-class Servicios(models.Model):
-    nombre = models.CharField(max_length=40)
-    servicio = models.CharField(max_length=40)
-
-class Noticias(models.Model):
-    fecha = models.DateField()
-    noticia = models.CharField(max_length=40)
 
 class Image(models.Model):
     propiedad = models.ForeignKey(Propiedad, related_name='images', on_delete=models.CASCADE)

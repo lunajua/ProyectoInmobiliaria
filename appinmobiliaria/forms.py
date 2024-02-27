@@ -14,7 +14,7 @@ class CargaPropiedad(forms.ModelForm):
 
 
 class ImageForm(forms.ModelForm):
-    image = forms.ImageField(widget=forms.ClearableFileInput())
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple':True}))
 
     class Meta:
         model = Image
