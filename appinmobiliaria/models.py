@@ -30,6 +30,8 @@ class Propiedad(models.Model):
     descripcion = models.TextField()
     venta_o_alquiler =models.IntegerField(choices=ven_alq)
     otros_atributos = models.CharField(max_length=40)
+    def __str__(self) -> str:
+        return f"dirección {self.direccion} | precio: {self.otros_atributos} | cantidad de ambientes: {self.ambientes}"
 
 
 class Contacto(models.Model):
