@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Image , Propiedad
 from django.views.generic.edit import FormView, CreateView
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
 from .forms import ContactoFormulario, CargaPropiedad, ImageForm
 from django.contrib import messages
@@ -89,3 +89,9 @@ def ver_propiedad(request, propiedad_id):
     images = property_instance.images.all()
 
     return render(request, 'appinmobiliaria/propiedad.html', {'property': property_instance, 'images': images})
+
+
+class PropiedadListView(ListView,LoginRequiredMixin):
+    model = Propiedad
+    template_name = 'appinmobiliaria/property-list.html'
+    context_object_name = "propiedades"

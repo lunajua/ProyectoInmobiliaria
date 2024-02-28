@@ -29,9 +29,9 @@ class Propiedad(models.Model):
     baños = models.IntegerField(validators=[MinValueValidator(0)])
     descripcion = models.TextField()
     venta_o_alquiler =models.IntegerField(choices=ven_alq)
-    otros_atributos = models.CharField(max_length=40)
+    precio = models.CharField(max_length=40)
     def __str__(self) -> str:
-        return f"dirección {self.direccion} | precio: {self.otros_atributos} | cantidad de ambientes: {self.ambientes}"
+        return f"dirección: {self.direccion} | precio: {self.precio} | cantidad de ambientes: {self.ambientes}"
 
 
 class Contacto(models.Model):
