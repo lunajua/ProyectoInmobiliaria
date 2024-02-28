@@ -8,4 +8,5 @@ urlpatterns = [path('register/',CreacionDeCuenta.as_view(),name="register"),
                path('login/',Login.as_view(), name="login"),
                path('logout/',logout.as_view(), name="logout"),
                path('editarusuario/', views.editarPerfil , name="editarusuario"),
+               path('agregar_avatar/', views.agregar_avatar , name="AgregarAvatar"),
                ]

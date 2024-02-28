@@ -4,7 +4,9 @@ from users.forms import UserForm
 from users.forms import UserEditForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-
+from users.forms import AvatarFormulario
+from django.contrib.auth.models import User
+from users.models import Avatar
 from django.contrib.auth.decorators import login_required
 
 
@@ -56,3 +58,32 @@ def editarPerfil(request):
 
  
       return render(request, "users/editar_usuario.html", {"miFormulario":miFormulario, "usuario":usuario})
+
+
+@login_required
+def agregar_avatar(request):
+    
+    if request.method == 'POST':
+        
+        mi_form = AvatarFormulario(request.POST, request.FILES) 
+            
+        if mi_form.is_valid():
+            user = User.objects.get(username=request.user)
+            print(f"\n\n{mi_form.cleaned_data['imagen']}\n")
+
+            try:
+                avatar = Avatar.objects.get(user=user)
+            except Avatar.DoesNotExist:
+                avatar= Avatar(user=user, imagen= mi_form.cleaned_data['imagen'])
+            else:
+                 avatar.imagen = mi_form.cleaned_data['imagen']
+           
+            avatar.save
+                             
+            return render(request, "appinmobiliaria/index.html") 
+            
+    else:
+        mi_form = AvatarFormulario()
+
+    context_data = {"mi_form": mi_form}
+    return render(request, "users/agregar_avatar.html", context_data)

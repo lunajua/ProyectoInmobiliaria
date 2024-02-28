@@ -6,11 +6,21 @@ from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from .forms import ContactoFormulario, CargaPropiedad, ImageForm
 from django.contrib import messages
+from users.models import Avatar
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def index(request):
-    return render(request, 'appinmobiliaria/index.html') 
+    try:
+        avatares = Avatar.objects.get(user__id=request.user.id)
+        imagen = avatares.imagen.url
+    except:
+        imagen = ""
+    return render(
+        request,
+        'appinmobiliaria/index.html',
+        {"url":imagen}
+        ) 
 
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
