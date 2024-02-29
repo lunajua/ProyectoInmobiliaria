@@ -48,3 +48,5 @@ class Contacto(models.Model):
 class Image(models.Model):
     propiedad = models.ForeignKey(Propiedad, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='property_images/')
+
+

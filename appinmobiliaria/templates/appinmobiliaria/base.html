@@ -60,14 +60,9 @@
                     <div class="navbar-nav ms-auto">
                         <a href="{% url 'appinmobiliaria:index' %}" class="nav-item nav-link active">Inicio</a>
                         <a href="{% url 'appinmobiliaria:views' %}" class="nav-item nav-link">Acerca De</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Propiedad</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'appinmobiliaria:lista' %}" class="dropdown-item">Lista de Propiedades</a>
-                                <a href="{% url 'appinmobiliaria:tipo' %}" class="dropdown-item">Tipo De Propiedad</a>
-                                <a href="{% url 'appinmobiliaria:agente' %}" class="dropdown-item">Agentes</a>
-                            </div>
-                        </div>
+                        <a href="{% url 'appinmobiliaria:ver-propiedades' %}" class="nav-item nav-link">Listado de Propiedades</a>
+                            
+                       
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
                             <div class="dropdown-menu rounded-0 m-0">

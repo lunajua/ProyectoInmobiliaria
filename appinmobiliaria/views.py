@@ -4,23 +4,25 @@ from .models import Image , Propiedad
 from django.views.generic.edit import FormView, CreateView
 from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
-from .forms import ContactoFormulario, CargaPropiedad, ImageForm
+from .forms import ContactoFormulario, CargaPropiedad, ImageForm, PropiedadSearchForm
 from django.contrib import messages
 from users.models import Avatar
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-def index(request):
-    try:
-        avatares = Avatar.objects.get(user__id=request.user.id)
-        imagen = avatares.imagen.url
-    except:
-        imagen = ""
-    return render(
-        request,
-        'appinmobiliaria/index.html',
-        {"url":imagen}
-        ) 
+# def index(request):
+#     try:
+#         avatares = Avatar.objects.get(user__id=request.user.id)
+#         imagen = avatares.imagen.url
+#     except:
+#         imagen = ""
+#     return render(
+#         request,
+#         'appinmobiliaria/index.html',
+#         {"url":imagen}
+#         ) 
+
+
 
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
@@ -95,3 +97,18 @@ class PropiedadListView(ListView,LoginRequiredMixin):
     model = Propiedad
     template_name = 'appinmobiliaria/property-list.html'
     context_object_name = "propiedades"
+
+class PropiedadSearchView(FormView):
+    template_name = 'appinmobiliaria/index.html'
+    form_class = PropiedadSearchForm
+
+    def form_valid(self, form):
+        
+        venta_o_alquiler = form.cleaned_data.get('venta_o_alquiler')
+
+
+        redirect_url = f'/?tipo=venta_o_alquiler={venta_o_alquiler}'
+
+        return redirect(redirect_url)
+
+    

@@ -19,3 +19,12 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
         fields = ['image']
+
+class PropiedadSearchForm(forms.Form):
+    VENTA_O_ALQUILER_CHOICES = [        
+        [1, "Venta"],
+        [2, "Alquiler"],
+    ]
+    
+    venta_o_alquiler = forms.ChoiceField(choices=VENTA_O_ALQUILER_CHOICES)
+    

@@ -1,11 +1,11 @@
 from django.urls import path 
 from appinmobiliaria import views
-from appinmobiliaria.views import ContactoView, AgregaPropiedad, ver_propiedad, PropiedadListView
+from appinmobiliaria.views import ContactoView, AgregaPropiedad, ver_propiedad, PropiedadListView, PropiedadSearchView
 
 app_name = 'appinmobiliaria'
 
 urlpatterns = [
-    path('', views.index, name="index"),
+    path('', PropiedadSearchView.as_view(), name="index"),
     path('about/', views.about, name="views"),
     path('carga/', views.AgregaPropiedad.as_view(), name="carga"),
     path('contact/', views.ContactoView.as_view(), name="contact"),
