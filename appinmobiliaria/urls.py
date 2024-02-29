@@ -1,6 +1,6 @@
 from django.urls import path 
 from appinmobiliaria import views
-from appinmobiliaria.views import ContactoView, AgregaPropiedad, ver_propiedad, PropiedadListView, PropiedadSearchView
+from appinmobiliaria.views import ContactoView, AgregaPropiedad, ver_propiedad, PropiedadListView, PropiedadSearchView, VerPropiedades
 
 app_name = 'appinmobiliaria'
 
@@ -13,7 +13,8 @@ urlpatterns = [
     path('property-agent/', views.property_agent, name="agente"),
     path('property-list/', PropiedadListView.as_view(), name="lista"), 
     path('property-type/', views.property_type, name="tipo"),   
-    path('ver-propiedad/<int:propiedad_id>', views.ver_propiedad, name="ver-propiedad")
+    path('ver-propiedad/<int:propiedad_id>', views.ver_propiedad, name="ver-propiedad"),
+    path('ver-propiedades/', VerPropiedades.as_view(), name="ver-propiedades"),
 ]
-    
+
     

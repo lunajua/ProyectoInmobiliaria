@@ -1,0 +1,45 @@
+{% extends 'appinmobiliaria/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %} Resultados {% endblock title %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+
+       {% block content %}
+       <div class="container">
+        <h2>Resultados de Búsqueda</h2>
+        {% if propiedades %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Dirección</th>
+                        <th>Tipo de Propiedad</th>
+                        <th>Venta o Alquiler</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for propiedad in propiedades %}
+                    <tr>
+                        <td>{{ propiedad.direccion }}</td>
+                        <td>{{ propiedad.get_tipo_de_propiedad_display }}</td>
+                        <td>{{ propiedad.get_venta_o_alquiler_display }}</td>
+                        <td>{{ propiedad.precio }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron propiedades que coincidan con su búsqueda.</p>
+        {% endif %}
+    </div>
+
+
+
+        {% endblock %}

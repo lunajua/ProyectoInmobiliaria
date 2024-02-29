@@ -93,10 +93,26 @@ def ver_propiedad(request, propiedad_id):
     return render(request, 'appinmobiliaria/propiedad.html', {'property': property_instance, 'images': images})
 
 
-class PropiedadListView(ListView,LoginRequiredMixin):
+class VerPropiedades(ListView):
     model = Propiedad
     template_name = 'appinmobiliaria/property-list.html'
     context_object_name = "propiedades"
+
+
+class PropiedadListView(ListView):
+    model = Propiedad
+    template_name = 'appinmobiliaria/propiedad_search.html'
+    context_object_name = "propiedades"
+
+    def get_queryset(self):
+        venta_o_alquiler = self.request.GET.get('venta_o_alquiler', None)
+
+        queryset = Propiedad.objects.none()
+        if venta_o_alquiler is not None:
+            queryset = Propiedad.objects.filter(venta_o_alquiler=venta_o_alquiler)
+
+        return queryset
+
 
 class PropiedadSearchView(FormView):
     template_name = 'appinmobiliaria/index.html'
