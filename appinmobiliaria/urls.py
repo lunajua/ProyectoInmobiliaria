@@ -19,4 +19,3 @@ urlpatterns = [
     path('avatar/<int:user_id>', UserAvatarView.as_view(),name="user_avatar"),
 ]
 
-    
