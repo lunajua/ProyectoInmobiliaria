@@ -71,9 +71,13 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'appinmobiliaria:carga' %}" class="btn btn-primary px-3 d-none d-lg-flex">Agregar Propiedad</a>
+                    {% if request.user.avatar.imagen %}
                     <span>&nbsp;&nbsp;</span>
-                    <img height="38px" src="{{url}}"/>
+                    <img height="38px" src="{% url 'appinmobiliaria:user_avatar' request.user.id %}"/>
                     <span>&nbsp;&nbsp;</span>
+                    {% else %}
+                    <img height="38px" src="{% static 'appinmobiliaria/img/default-avatar.png' %}"/>
+                    {% endif %}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     
                     <div class="nav-item dropdown">

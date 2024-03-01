@@ -1,6 +1,7 @@
 from django.urls import path 
 from appinmobiliaria import views
 from appinmobiliaria.views import ContactoView, AgregaPropiedad, ver_propiedad, PropiedadListView, PropiedadSearchView, VerPropiedades
+from users.views import UserAvatarView
 
 app_name = 'appinmobiliaria'
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path('property-type/', views.property_type, name="tipo"),   
     path('ver-propiedad/<int:propiedad_id>', views.ver_propiedad, name="ver-propiedad"),
     path('ver-propiedades/', VerPropiedades.as_view(), name="ver-propiedades"),
+    path('avatar/<int:user_id>', UserAvatarView.as_view(),name="user_avatar"),
 ]
 
     

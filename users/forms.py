@@ -24,7 +24,14 @@ class UserEditForm(UserCreationForm):
         help_texts = {k:"" for k in fields}
 
 class AvatarFormulario(forms.ModelForm):
-
     class Meta:
         model = Avatar
-        fields = "__all__"
+        fields = ['imagen']
+
+    def init(self, args, kwargs):
+        self.user = kwargs.pop('user', None)
+        super(AvatarFormulario, self).init(args, kwargs)
+
+    def save(self, commit=True):
+        self.instance.user = self.user
+        return super(AvatarFormulario, self).save(commit=commit)
