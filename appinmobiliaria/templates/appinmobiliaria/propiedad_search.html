@@ -31,6 +31,7 @@
                         <td>{{ propiedad.get_tipo_de_propiedad_display }}</td>
                         <td>{{ propiedad.get_venta_o_alquiler_display }}</td>
                         <td>{{ propiedad.precio }}</td>
+                        <td><a href="{% url 'appinmobiliaria:ver-propiedad' propiedad.id %}" class="btn btn-primary">Ver</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
