@@ -86,7 +86,7 @@ def agregar_avatar(request):
             else:
                  avatar.imagen = mi_form.cleaned_data['imagen']
            
-            avatar.save
+            avatar.save()
                              
             return render(request, "appinmobiliaria/index.html") 
             
@@ -106,7 +106,7 @@ class UserAvatarView(View):
         if user_id:
             avatar = get_object_or_404(Avatar, user_id=user_id)
             if avatar.imagen:
-                return HttpResponse(avatar.imagen)
+                return HttpResponse(avatar.imagen, content_type="image/jpeg")
             else:
                 return HttpResponse("No se encontró un avatar para el usuario", status=404)
         else:
