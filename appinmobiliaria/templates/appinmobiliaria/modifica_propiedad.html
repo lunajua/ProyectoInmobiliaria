@@ -1,0 +1,26 @@
+{% extends 'appinmobiliaria/base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %} Edición de Propiedades {% endblock title %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    {% block content %}
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Actualizar Propiedad</h3>
+            {{ form|crispy }}
+            <div class="form-buttons">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary"/>
+                <a href="{% url 'appinmobiliaria:index' %}" class="btn btn-outline">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</html>

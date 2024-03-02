@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Image , Propiedad
-from django.views.generic.edit import FormView, CreateView
+from django.views.generic.edit import FormView, CreateView, UpdateView
 from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
 from .forms import ContactoFormulario, CargaPropiedad, ImageForm, PropiedadSearchForm
@@ -114,4 +114,14 @@ class PropiedadSearchView(FormView):
 
         return redirect(redirect_url)
 
+class PropiedadUpdateView(UpdateView):
+    model = Propiedad
+    form_class = CargaPropiedad
+    template_name = 'appinmobiliaria/modifica_propiedad.html'
+    success_url = reverse_lazy ('appinmobiliaria:ver-propiedades')
+
+class EditaPropiedades(ListView):
+    model = Propiedad
+    template_name = 'appinmobiliaria/editar_propiedades.html'
+    context_object_name = "propiedades"
     
