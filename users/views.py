@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic
-from users.forms import UserForm
-from users.forms import UserEditForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-
+from django.contrib.auth.models import User
+from users.models import Avatar
 from django.contrib.auth.decorators import login_required
+from django.views.generic import View
+from users.forms import UserForm, AvatarFormulario, UserEditForm
 
 
 # Create your views here.
@@ -27,6 +30,12 @@ class Login(LoginView):
 
 class logout(LogoutView):
     next_page = 'appinmobiliaria:index'
+
+
+class VerAvatar():
+     model = Avatar
+
+
 
 @login_required
 def editarPerfil(request):
@@ -56,3 +65,49 @@ def editarPerfil(request):
 
  
       return render(request, "users/editar_usuario.html", {"miFormulario":miFormulario, "usuario":usuario})
+
+
+
+@login_required
+def agregar_avatar(request):
+    
+    if request.method == 'POST':
+        
+        mi_form = AvatarFormulario(request.POST, request.FILES) 
+            
+        if mi_form.is_valid():
+            user = User.objects.get(username=request.user)
+            print(f"\n\n{mi_form.cleaned_data['imagen']}\n")
+
+            try:
+                avatar = Avatar.objects.get(user=user)
+            except Avatar.DoesNotExist:
+                avatar= Avatar(user=user, imagen= mi_form.cleaned_data['imagen'])
+            else:
+                 avatar.imagen = mi_form.cleaned_data['imagen']
+           
+            avatar.save()
+                             
+            return render(request, "appinmobiliaria/index.html") 
+            
+    else:
+        mi_form = AvatarFormulario()
+
+    context_data = {"mi_form": mi_form}
+    return render(request, "users/agregar_avatar.html", context_data)
+
+
+
+
+
+class UserAvatarView(View):
+    def get(self, request, *args, **kwargs):
+        user_id = kwargs.get('user_id', None)
+        if user_id:
+            avatar = get_object_or_404(Avatar, user_id=user_id)
+            if avatar.imagen:
+                return HttpResponse(avatar.imagen, content_type="image/jpeg")
+            else:
+                return HttpResponse("No se encontró un avatar para el usuario", status=404)
+        else:
+            return HttpResponse("ID de usuario no proporcionado", status=400)

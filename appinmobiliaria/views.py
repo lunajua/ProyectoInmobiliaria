@@ -1,16 +1,15 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Image , Propiedad
-from django.views.generic.edit import FormView, CreateView
-from django.views.generic import TemplateView
+from django.views.generic.edit import FormView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
-from .forms import ContactoFormulario, CargaPropiedad, ImageForm
+from .forms import ContactoFormulario, CargaPropiedad, ImageForm, PropiedadSearchForm
 from django.contrib import messages
+from users.models import Avatar
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
-def index(request):
-    return render(request, 'appinmobiliaria/index.html') 
+ 
 
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
@@ -79,3 +78,50 @@ def ver_propiedad(request, propiedad_id):
     images = property_instance.images.all()
 
     return render(request, 'appinmobiliaria/propiedad.html', {'property': property_instance, 'images': images})
+
+
+class VerPropiedades(ListView):
+    model = Propiedad
+    template_name = 'appinmobiliaria/property-list.html'
+    context_object_name = "propiedades"
+
+
+class PropiedadListView(ListView):
+    model = Propiedad
+    template_name = 'appinmobiliaria/propiedad_search.html'
+    context_object_name = "propiedades"
+
+    def get_queryset(self):
+        venta_o_alquiler = self.request.GET.get('venta_o_alquiler', None)
+
+        queryset = Propiedad.objects.none()
+        if venta_o_alquiler is not None:
+            queryset = Propiedad.objects.filter(venta_o_alquiler=venta_o_alquiler)
+
+        return queryset
+
+
+class PropiedadSearchView(FormView):
+    template_name = 'appinmobiliaria/index.html'
+    form_class = PropiedadSearchForm
+
+    def form_valid(self, form):
+        
+        venta_o_alquiler = form.cleaned_data.get('venta_o_alquiler')
+
+
+        redirect_url = f'/?tipo=venta_o_alquiler={venta_o_alquiler}'
+
+        return redirect(redirect_url)
+
+class PropiedadUpdateView(UpdateView):
+    model = Propiedad
+    form_class = CargaPropiedad
+    template_name = 'appinmobiliaria/modifica_propiedad.html'
+    success_url = reverse_lazy ('appinmobiliaria:ver-propiedades')
+
+class EditaPropiedades(ListView):
+    model = Propiedad
+    template_name = 'appinmobiliaria/editar_propiedades.html'
+    context_object_name = "propiedades"
+    

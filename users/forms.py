@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from users.models import Avatar
 class UserForm(UserCreationForm):
     email = forms.EmailField(required=True)
     password1 = forms.CharField(label='contraseña', widget=forms.PasswordInput)
@@ -22,3 +22,16 @@ class UserEditForm(UserCreationForm):
         model = User
         fields = [ 'email', 'password1', 'password2'] 
         help_texts = {k:"" for k in fields}
+
+class AvatarFormulario(forms.ModelForm):
+    class Meta:
+        model = Avatar
+        fields = ['imagen']
+
+    def init(self, args, kwargs):
+        self.user = kwargs.pop('user', None)
+        super(AvatarFormulario, self).init(args, kwargs)
+
+    def save(self, commit=True):
+        self.instance.user = self.user
+        return super(AvatarFormulario, self).save(commit=commit)

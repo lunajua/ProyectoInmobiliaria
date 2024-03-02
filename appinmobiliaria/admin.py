@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Propiedad)
 admin.site.register(Image)
 admin.site.register(Contacto)
+
