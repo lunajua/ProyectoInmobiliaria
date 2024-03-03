@@ -31,13 +31,12 @@
     </div>
     {% endif %}
 
-    <h1>Dirección: {{ property.direccion }} </h1>
-    <li>Tipo de Propiedad:{{ property.tipo_de_propiedad }}</li>
-    <li>{{ property.palabra_clave }}</li>
-    <li>Metros Cuadrados:{{ property.metros }}</li>
-    <li>Cantidad de Ambientes:{{ property.ambientes }}</li>
-    <li>Descripción:{{ property.descripcion }}</li>
-    <li>Estado: {{ property.venta_o_alquiler }}</li>
-    <li>Baños: {{ property.baños }}</li>
+    <h2>Dirección: {{ property.direccion }} </h2>
+    <h2><li>{{ property.precio }}</li></h2>
+    <h2><li>Metros Cuadrados:{{ property.metros }}</li></h2>
+    <h2><li>Cantidad de Ambientes:{{ property.ambientes }}</li></h2>
+    <h2><li>Descripción:{{ property.descripcion }}</li></h2>
+    <h2><li>Estado: {{ property.venta_o_alquiler }}</li></h2>
+    <h2><li>Baños: {{ property.baños }}</li></h2>
 
 {% endblock %}
