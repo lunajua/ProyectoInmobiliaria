@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Image , Propiedad
-from django.views.generic.edit import FormView, CreateView, UpdateView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
 from .forms import ContactoFormulario, CargaPropiedad, ImageForm, PropiedadSearchForm
@@ -14,20 +14,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
 
-def pagina_no_encontrada(request):
-    return render(request, 'appinmobiliaria/404.html')
 
-def testimonial(request):
-    return render(request, 'appinmobiliaria/testimonial.html')
 
-def property_agent(request):
-    return render(request, 'appinmobiliaria/property-agent.html')
 
-def property_list(request):
-    return render(request, 'appinmobiliaria/property-list.html')
 
-def property_type(request):
-    return render(request, 'appinmobiliaria/property-type.html')
 
 class ContactoView(FormView):
     template_name = 'appinmobiliaria/contact.html'
@@ -114,14 +104,19 @@ class PropiedadSearchView(FormView):
 
         return redirect(redirect_url)
 
-class PropiedadUpdateView(UpdateView):
+class PropiedadUpdateView(LoginRequiredMixin,UpdateView):
     model = Propiedad
     form_class = CargaPropiedad
     template_name = 'appinmobiliaria/modifica_propiedad.html'
     success_url = reverse_lazy ('appinmobiliaria:ver-propiedades')
 
-class EditaPropiedades(ListView):
+class EditaPropiedades(LoginRequiredMixin,ListView):
     model = Propiedad
     template_name = 'appinmobiliaria/editar_propiedades.html'
     context_object_name = "propiedades"
-    
+
+
+class EliminarPropiedad(LoginRequiredMixin,DeleteView):
+    model = Propiedad
+    template_name = "appinmobiliaria/borrar_propiedad.html"
+    success_url = reverse_lazy('appinmobiliaria:ver-propiedades')
