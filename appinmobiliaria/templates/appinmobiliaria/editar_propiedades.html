@@ -11,6 +11,7 @@
     <meta content="" name="description">
 
        {% block content %}
+       {% csrf_token %}
        <div class="container">
         <h2>Listado de Propiedades</h2>
         {% if propiedades %}
@@ -32,6 +33,7 @@
                         <td>{{ propiedad.precio }}</td>
                         <td><a href="{% url 'appinmobiliaria:ver-propiedad' propiedad.id %}" class="btn btn-primary">Ver</a></td>
                         <td><a href="{% url 'appinmobiliaria:modificar_propiedad' propiedad.id %}" class="btn btn-primary">Editar</a></td>
+                        <td><a href="{% url 'appinmobiliaria:eliminar-propiedad' propiedad.id %}" class="btn btn-secondary">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

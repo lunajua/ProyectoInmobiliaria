@@ -30,8 +30,13 @@ class Propiedad(models.Model):
     descripcion = models.TextField()
     venta_o_alquiler =models.IntegerField(choices=ven_alq)
     precio = models.CharField(max_length=40)
+
     def __str__(self) -> str:
         return f"dirección: {self.direccion} | precio: {self.precio} | cantidad de ambientes: {self.ambientes}"
+    
+    def delete(self, *args, **kwargs):
+        self.images.all().delete()
+        super().delete(*args, **kwargs)
 
 
 class Contacto(models.Model):
