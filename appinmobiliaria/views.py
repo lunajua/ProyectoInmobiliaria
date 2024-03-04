@@ -17,7 +17,7 @@ def about(request):
 class ContactoView(FormView):
     template_name = 'appinmobiliaria/contact.html'
     form_class = ContactoFormulario
-    success_url = reverse_lazy('contact')  # Asume que 'contact' es el nombre de la URL de esta vista
+    success_url = reverse_lazy('contact')
 
     def form_valid(self, form):
         form.save()
