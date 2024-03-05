@@ -7,7 +7,7 @@ El proyecto consiste en una página web desarrollada en Django como parte de un 
 - Si bien a continuación se detallan tareas específicas y contribuciones individuales, queremos destacar que la colaboración en este proyecto fue clave, con tareas generadas en conjunto. GitHub facilitó la colaboración al permitirnos gestionar y revisar cambios de manera eficiente, así como también que la programación en conjunto se haya podido abordar con fluidez.
 
 ## Juan Pablo Luna:
--Generó implementaciones de la lógica del lado del servidor. Se encargó de crear el formulario de edición de propiedades y gestionó las redirecciones en los templates. Además, desarrolló la funcionalidad para mostrar los detalles de cada propiedad y estableció un sistema de búsqueda y filtrado eficiente.
+- Generó implementaciones de la lógica del lado del servidor. Se encargó de crear el formulario de edición de propiedades y gestionó las redirecciones en los templates. Además, desarrolló la funcionalidad para mostrar los detalles de cada propiedad y estableció un sistema de búsqueda y filtrado eficiente.
 
 ## Lucas Beccarini:
 - Tuvo un rol fundamental y desplegó una amplia gama de habilidades en el desarrollo del proyecto. Desde la creación de vistas basadas en clase para la búsqueda del formulario hasta la implementación de funcionalidades avanzadas como la gestión de imágenes y la paginación. Además, trabajó en la optimización de la experiencia del usuario, arreglando herencias, redirecciones y asegurando un flujo de navegación fluido.
