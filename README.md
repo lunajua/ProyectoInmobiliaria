@@ -13,15 +13,15 @@ El proyecto consiste en una página web desarrollada en Django como parte de un 
 - Tuvo un rol fundamental y desplegó una amplia gama de habilidades en el desarrollo del proyecto. Desde la creación de vistas basadas en clase para la búsqueda del formulario hasta la implementación de funcionalidades avanzadas como la gestión de imágenes y la paginación. Además, trabajó en la optimización de la experiencia del usuario, arreglando herencias, redirecciones y asegurando un flujo de navegación fluido.
 
 ## Matías Wullich:
-- se enfocó en aspectos visuales y de interfaz de usuario, implementando mejoras en el avatar y realizando cambios en el formulario de registro y edición. Además, fue responsable de la integración de botones para la autenticación de usuarios, así como de la creación y configuración de templates y paths necesarios para la navegación. Además, implementó autenticación de usuarios, incluyendo registro, inicio de sesión y cierre de sesión, así como también el Avatar.
+- Se enfocó en aspectos visuales y de interfaz de usuario, implementando mejoras en el avatar y realizando cambios en el formulario de registro y edición. Además, fue responsable de la integración de botones para la autenticación de usuarios, así como de la creación y configuración de templates y paths necesarios para la navegación. Además, implementó autenticación de usuarios, incluyendo registro, inicio de sesión y cierre de sesión, así como también el Avatar.
 
 ## Tecnologías Utilizadas:
 
 - Pyhton 3.12.1
-- django==4.2
-- bootstrap==5.3.2
+- Django==4.2
+- Bootstrap==5.3.2
 - Web = SCSS / HTML 5 / Javascript
-- pillow==10.2.0
-- django-crispy-forms 2.1
-- crispy-bootstrap5 versión 2023.10
-- pipenv versión 2023.11.17
+- Pillow==10.2.0
+- Django-crispy-forms 2.1
+- Crispy-bootstrap5 versión 2023.10
+- Pipenv versión 2023.11.17
