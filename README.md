@@ -24,4 +24,7 @@ El proyecto consiste en una página web desarrollada en Django como parte de un 
 - Pillow==10.2.0
 - Django-crispy-forms 2.1
 - Crispy-bootstrap5 versión 2023.10
-- Pipenv versión 2023.11.17
+- Pipenv versión 2023.11.17 
+
+## Video Explicativo:
+- https://www.youtube.com/watch?v=VhLLYu3m7xE&ab_channel=lucasbecca
