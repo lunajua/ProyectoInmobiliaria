@@ -14,15 +14,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def about(request):
     return render(request, 'appinmobiliaria/about.html')
 
-
-
-
-
-
 class ContactoView(FormView):
     template_name = 'appinmobiliaria/contact.html'
     form_class = ContactoFormulario
-    success_url = reverse_lazy('contact')  # Asume que 'contact' es el nombre de la URL de esta vista
+    success_url = reverse_lazy('contact')
 
     def form_valid(self, form):
         form.save()
@@ -85,9 +80,12 @@ class PropiedadListView(ListView):
         venta_o_alquiler = self.request.GET.get('venta_o_alquiler', None)
 
         queryset = Propiedad.objects.none()
-        if venta_o_alquiler is not None:
-            queryset = Propiedad.objects.filter(venta_o_alquiler=venta_o_alquiler)
-
+        if venta_o_alquiler is not None and venta_o_alquiler != 'Seleccione Venta o Alquiler':
+            try:
+                venta_o_alquiler_int = int(venta_o_alquiler)
+                queryset = Propiedad.objects.filter(venta_o_alquiler=venta_o_alquiler_int)
+            except ValueError:
+                pass
         return queryset
 
 

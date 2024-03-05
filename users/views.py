@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic
 from django.contrib.auth.views import LoginView, LogoutView
-from django.views.generic.edit import UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from users.models import Avatar

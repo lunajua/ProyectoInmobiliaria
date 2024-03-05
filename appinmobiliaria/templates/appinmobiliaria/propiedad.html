@@ -5,19 +5,38 @@
 
     {% if property.images.count >  1 %}
         {% for image in property.images.all %}
-            <img height="400" src="{{ image.image.url }}" alt="Imagen de la propiedad">
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" src="{{ image.image.url }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    {% else %}
-        <img height="400" src="{{ property.images.first.image.url }}" alt="Imagen de la propiedad">
+    {% else %}   
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                        <img class="img-fluid w-100" src="{{ property.images.first.image.url }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endif %}
 
-    <h1>Dirección: {{ property.direccion }} </h1>
-    <li>Tipo de Propiedad:{{ property.tipo_de_propiedad }}</li>
-    <li>{{ property.palabra_clave }}</li>
-    <li>Metros Cuadrados:{{ property.metros }}</li>
-    <li>Cantidad de Ambientes:{{ property.ambientes }}</li>
-    <li>Descripción:{{ property.descripcion }}</li>
-    <li>Estado: {{ property.venta_o_alquiler }}</li>
-    <li>Baños: {{ property.baños }}</li>
+    <h2>Dirección: {{ property.direccion }} </h2>
+    <h2><li>{{ property.precio }}</li></h2>
+    <h2><li>Metros Cuadrados:{{ property.metros }}</li></h2>
+    <h2><li>Cantidad de Ambientes:{{ property.ambientes }}</li></h2>
+    <h2><li>Descripción:{{ property.descripcion }}</li></h2>
+    <h2><li>Estado: {{ property.venta_o_alquiler }}</li></h2>
+    <h2><li>Baños: {{ property.baños }}</li></h2>
 
 {% endblock %}
